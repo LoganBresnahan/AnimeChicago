@@ -10,50 +10,50 @@ const linter = (dataArray, currentPath, lintErrors) => {
   let sampleTreeBoolean = false
 
   if (dataArray[0][0] != "*") {
-    lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t The first line must be a header statement prefixed with a "*"`)
+    lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t The first line must be a header statement prefixed with a "*"`)
   }
 
   dataArray.forEach((value, index) => {
     if (!/\|--/.exec(value) && !/[a-zA-Z]|\d|\*|\-|\s/.exec(value[0])) {
-      lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: Invalid line prefix. Only "*", "-", spaces, and letters are allowed to start a line.`)
+      lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: Invalid line prefix. Only "*", "-", spaces, and letters are allowed to start a line.`)
     }
 
     if (value[0] === "*" || value[0] === "-") {
       if (value[1] != " ") {
-        lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: There must be a space between all prefixes and the next letter.`)
+        lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: There must be a space between all prefixes and the next letter.`)
       }
 
       if (dataArray[index+1] != "" && dataArray[index+1][0] != " ") {
-        lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+2}: New lines following a statement prefixed with a "*" or "-" must be tabbed over on the next line.`)
+        lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+2}: New lines following a statement prefixed with a "*" or "-" must be tabbed over on the next line.`)
       }
     }
 
     if (/\d/.exec(value[0])) {
       if (value[1] != ".") {
-        lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: Lines beginning with numbers must have a "." directly after the number`)
+        lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: Lines beginning with numbers must have a "." directly after the number`)
       }
 
       if (value[1] === "." && value[2] != " ") {
-        lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: There must be a space between number period prefixed and the next letter.`)
+        lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: There must be a space between number period prefixed and the next letter.`)
       }
 
       if (dataArray[index+1] != "" && dataArray[index+1][0] != " ") {
-        lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+2}: New lines following a statement prefixed with a number period (1.) must be tabbed over on the next line.`)
+        lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+2}: New lines following a statement prefixed with a number period (1.) must be tabbed over on the next line.`)
       }
     }
 
     if (value[0] === " ") {
       if (dataArray[index+1] != "" && dataArray[index+1][0] != " ") {
         if (dataArray[index+1][0] ==="*" || dataArray[index+1][0] ==="-"){
-          lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+2}: There must be an empty line seperating a block of text and a line prefixed with a "*" or "-".`)
+          lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+2}: There must be an empty line seperating a block of text and a line prefixed with a "*" or "-".`)
         } else {
-          lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+2}: New lines part of a block prefixed with a "*" or "-" must be tabbed over on the next line.`)
+          lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+2}: New lines part of a block prefixed with a "*" or "-" must be tabbed over on the next line.`)
         }
       }
     }
 
     if (value.length > 55) {
-      lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: The line cannnot be any longer than 55 characters`)
+      lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: The line cannnot be any longer than 55 characters`)
     }
 
     if (/\|--/.exec(value)) {
@@ -61,7 +61,7 @@ const linter = (dataArray, currentPath, lintErrors) => {
       value.split("").forEach((char, i) => {
         if (char === "-" && value[i-1] === "-") {
           if (value[i+1] != " ") {
-            lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Line ${index+1}: There must be a space between "|--" and the next preceding character.`)
+            lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Line ${index+1}: There must be a space between "|--" and the next preceding character.`)
           }
         }
       })
@@ -69,11 +69,11 @@ const linter = (dataArray, currentPath, lintErrors) => {
   })
 
   if (!dataArray.includes("Sample Directory Tree:")) {
-    lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Every ABOUTDIR.md must have a line equal to "Sample Directory Tree:" (check for white space before and after)`)
+    lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Every ABOUTDIR.txt must have a line equal to "Sample Directory Tree:" (check for white space before and after)`)
   }
 
   if (!sampleTreeBoolean) {
-    lintErrors.push(`${currentPath}/ABOUTDIR.md:\n\t Every ABOUTDIR.md needs a sample directory tree diagram, example: \n\n\t|-- config\n\t\t|-- ABOUTDIR.md`)
+    lintErrors.push(`${currentPath}/ABOUTDIR.txt:\n\t Every ABOUTDIR.txt needs a sample directory tree diagram, example: \n\n\t|-- config\n\t\t|-- ABOUTDIR.txt`)
   }
 }
 
@@ -81,11 +81,11 @@ const linter = (dataArray, currentPath, lintErrors) => {
 const directoryClimber = (fs, projectDir, lintErrors) => {
   const files = fs.readdirSync(projectDir)
 
-  if (files.includes("ABOUTDIR.md")) {
-    const data = fs.readFileSync(`${projectDir}/ABOUTDIR.md`, "utf8")
+  if (files.includes("ABOUTDIR.txt")) {
+    const data = fs.readFileSync(`${projectDir}/ABOUTDIR.txt`, "utf8")
     linter(data.split("\n"), projectDir, lintErrors)
   } else {
-    lintErrors.push(`${projectDir}:\n\t Directory does not have an ABOUTDIR.md. All directories must have an ABOUTDIR.md.`)
+    lintErrors.push(`${projectDir}:\n\t Directory does not have an ABOUTDIR.txt. All directories must have an ABOUTDIR.txt.`)
   }
 
   files.forEach((file, index) => {
@@ -122,14 +122,14 @@ if (errorsList.length > 0) {
 //   fs.readdir(projectDir, (err, files) => {
 //     if (err) { return }
 //
-//     if (files.includes("ABOUTDIR.md")) {
-//       fs.readFile(`${projectDir}/ABOUTDIR.md`, "utf8", (err, data) => {
+//     if (files.includes("ABOUTDIR.txt")) {
+//       fs.readFile(`${projectDir}/ABOUTDIR.txt`, "utf8", (err, data) => {
 //         if (err) { return }
 //         // console.log(data.split("\n"))
 //       })
 //       // read and regex process on file
 //     } else {
-//       lintErrors.push(`${projectDir} does not have an ABOUTDIR.md. All directories must have an ABOUTDIR.md if something else exists in the directory`)
+//       lintErrors.push(`${projectDir} does not have an ABOUTDIR.txt. All directories must have an ABOUTDIR.txt if something else exists in the directory`)
 //     }
 //
 //     files.forEach((file, index) => {
