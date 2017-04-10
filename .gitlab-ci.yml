@@ -11,6 +11,6 @@ kiaLinter:
   script:
     - npm run kia-lint
 
-jest:
-  script:
-    - npm test
+# jest:
+#   script:
+#     - npm test

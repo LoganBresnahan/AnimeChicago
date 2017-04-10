@@ -15,7 +15,7 @@
 
 Sample Directory Tree:
 
-|-- routes
+|-- scenes
     |-- Details
         |-- Details.js
         |-- DetailsContainer.js
