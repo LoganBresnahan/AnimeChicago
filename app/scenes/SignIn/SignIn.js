@@ -3,22 +3,23 @@ import {
   Text,
   View,
   Image,
+  Linking,
 } from 'react-native';
 
 class SignIn extends Component {
   constructor(props){
     super(props)
 
-    this.handleSingIn = this.handleSingIn.bind(this)
+    this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSkipSignIn = this.handleSkipSignIn.bind(this)
   }
 
-  handleSingIn() {
+  handleSignIn() {
     console.log("Sign In Pressed");
   }
 
   handleSkipSignIn() {
-    console.log("Skip Pressed");
+    console.log("Skip Sign In Pressed");
   }
 
   render() {
@@ -42,7 +43,7 @@ class SignIn extends Component {
           <ImageButton
             title={"Sign In"}
             image={require('./../../images/meetup-media.png')}
-            onPress={this.handleSingIn} />
+            onPress={this.handleSignIn} />
 
           <ImageButton
             title={"Explore"}
