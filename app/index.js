@@ -5,7 +5,7 @@ import Styles from './config/styles';
 import SignIn from './scenes/SignIn/index';
 import Home from './scenes/Home/index';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <Router
@@ -21,3 +21,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
