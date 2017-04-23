@@ -4,6 +4,8 @@ import {
   View,
   Image,
   Linking,
+  ScrollView,
+  StatusBar,
 } from 'react-native';
 
 class SignIn extends Component {
@@ -15,11 +17,11 @@ class SignIn extends Component {
   }
 
   handleSignIn() {
+    Linking.openURL(`https://secure.meetup.com/oauth2/authorize?client_id=${this.props.meetup.key}&response_type=token&redirect_uri=${this.props.meetup.uri}&set_mobile=${this.props.meetup.mobile}`)
     console.log("Sign In Pressed");
   }
 
   handleSkipSignIn() {
-    console.log("Skip Sign In Pressed");
   }
 
   render() {
@@ -29,30 +31,34 @@ class SignIn extends Component {
     const ImageButton = this.props.globalImageButton;
 
     return (
-      <View style={GlobalStyles.container}>
-        <Text style={LocalStyles.welcome}>
-          AnimeChicago
-        </Text>
+      <ScrollView>
+        <StatusBar translucent={true} backgroundColor={'transparent'} />
+        <View style={GlobalStyles.container}>
 
-        <Image
-          style={LocalStyles.crest}
-          source={require('./../../images/crest.png')} />
+          <Text style={LocalStyles.welcome}>
+            AnimeChicago
+          </Text>
 
-        <View style={LocalStyles.buttons}>
+          <Image
+            style={LocalStyles.crest}
+            source={require('./../../images/crest.png')} />
 
-          <ImageButton
-            title={"Sign In"}
-            image={require('./../../images/meetup-media.png')}
-            onPress={this.handleSignIn} />
+          <View style={LocalStyles.buttons}>
 
-          <ImageButton
-            title={"Explore"}
-            image={require('./../../images/arrow-right.png')}
-            onPress={this.handleSkipSignIn} />
+            <ImageButton
+              title={"Sign In"}
+              image={require('./../../images/meetup-media.png')}
+              onPress={this.handleSignIn} />
+
+            <ImageButton
+              title={"Explore"}
+              image={require('./../../images/arrow-right.png')}
+              onPress={this.handleSkipSignIn} />
+
+          </View>
 
         </View>
-
-      </View>
+      </ScrollView>
     );
   }
 }

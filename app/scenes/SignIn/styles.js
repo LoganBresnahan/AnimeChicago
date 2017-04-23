@@ -1,18 +1,20 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, PixelRatio } from 'react-native';
+
+import em from '../../lib/EmSimulator'
 
 const Styles = StyleSheet.create({
   welcome: {
     textAlign: 'center',
-    fontSize: 40,
+    fontSize: em(4),
     fontWeight: 'bold',
     color: '#46ECFF',
-    marginBottom: 30,
+    marginBottom: em(2.5),
   },
   crest: {
-    height: 221,
-    width: 221,
-    marginBottom: 40,
+    height: em(22.01),
+    width: em(22.01),
+    marginBottom: em(3.5),
   },
   buttons: {
     flexDirection: 'row',
