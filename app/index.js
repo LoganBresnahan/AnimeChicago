@@ -10,7 +10,8 @@ class App extends Component {
     return (
       <Router
         navigationBarStyle={Styles.navBar}
-        titleStyle={Styles.navBarTitle} >
+        titleStyle={Styles.navBarTitle}
+        barButtonIconStyle={Styles.navbarIcons} >
 
         <Scene key='root'>
           <Scene key='SignIn' component={SignIn} title="Sign In" initial={true} />

@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
 import {
-  StyleSheet,
   Text,
-  View
 } from 'react-native';
 
-export default class Home extends Component {
+class Home extends Component {
+  constructor(props){
+    super(props)
+  }
+
   render() {
+    const Wrapper = this.props.wrapper;
+
     return (
-      <View>
-      </View>
-    )
+      <Wrapper>
+
+        <Text>
+          Home
+        </Text>
+
+      </Wrapper>
+    );
   }
 }
+
+Home.propTypes = {
+  wrapper: React.PropTypes.func,
+}
+
+export default Home;
