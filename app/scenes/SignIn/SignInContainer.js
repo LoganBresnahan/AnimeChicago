@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 
 import SignIn from './SignIn';
-import GlobalStyles from './../../config/styles';
 import LocalStyles from './styles';
-import Button from './../../components/Button/index';
-import ImageButton from './../../components/ImageButton/index';
+import ImageButton from '../../components/ImageButton/index';
 import Constants from '../../config/constants';
+import Wrapper from '../../layouts/Wrapper/index';
 
 const SignInContainer = () => {
   const constants = new Constants();
@@ -17,10 +16,9 @@ const SignInContainer = () => {
 
   return (
     <SignIn
-      globalStyles={GlobalStyles}
+      wrapper={Wrapper}
       localStyles={LocalStyles}
-      globalButton={Button}
-      globalImageButton={ImageButton}
+      imageButton={ImageButton}
       meetup={meetup} />
   );
 }

@@ -4,9 +4,8 @@ import {
   View,
   Image,
   Linking,
-  ScrollView,
-  StatusBar,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class SignIn extends Component {
   constructor(props){
@@ -14,26 +13,37 @@ class SignIn extends Component {
 
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSkipSignIn = this.handleSkipSignIn.bind(this)
+    this.handleQueryParams = this.handleQueryParams.bind(this)
   }
 
   handleSignIn() {
     Linking.openURL(`https://secure.meetup.com/oauth2/authorize?client_id=${this.props.meetup.key}&response_type=token&redirect_uri=${this.props.meetup.uri}&set_mobile=${this.props.meetup.mobile}`)
-    console.log("Sign In Pressed");
   }
 
   handleSkipSignIn() {
+    Actions.Home()
+  }
+
+  componentDidMount() {
+    Linking.addEventListener('url', this.handleQueryParams);
+  }
+
+  componentWillUnmount() {
+    Linking.removeEventListener('url', this.handleQueryParams);
+  }
+
+  handleQueryParams(event) {
+    console.log(event.url);
   }
 
   render() {
     const GlobalStyles = this.props.globalStyles;
     const LocalStyles = this.props.localStyles;
-    const Button = this.props.globalButton;
-    const ImageButton = this.props.globalImageButton;
+    const ImageButton = this.props.imageButton;
+    const Wrapper = this.props.wrapper;
 
     return (
-      <ScrollView>
-        <StatusBar translucent={true} backgroundColor={'transparent'} />
-        <View style={GlobalStyles.container}>
+      <Wrapper>
 
           <Text style={LocalStyles.welcome}>
             AnimeChicago
@@ -41,33 +51,32 @@ class SignIn extends Component {
 
           <Image
             style={LocalStyles.crest}
-            source={require('./../../images/crest.png')} />
+            source={require('../../images/crest.png')} />
 
           <View style={LocalStyles.buttons}>
 
             <ImageButton
               title={"Sign In"}
-              image={require('./../../images/meetup-media.png')}
+              image={require('../../images/meetup-media.png')}
               onPress={this.handleSignIn} />
 
             <ImageButton
               title={"Explore"}
-              image={require('./../../images/arrow-right.png')}
+              image={require('../../images/arrow-right.png')}
               onPress={this.handleSkipSignIn} />
 
           </View>
 
-        </View>
-      </ScrollView>
+      </Wrapper>
     );
   }
 }
 
 SignIn.propTypes = {
-  globalStyles: React.PropTypes.object,
+  wrapper: React.PropTypes.func,
   localStyles: React.PropTypes.object,
-  globalButton: React.PropTypes.func,
-  globalImageButton: React.PropTypes.func,
+  imageButton: React.PropTypes.func,
+  meetup: React.PropTypes.object,
 }
 
 export default SignIn;

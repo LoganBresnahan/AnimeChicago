@@ -26,7 +26,10 @@ const Styles = StyleSheet.create({
   },
   navBarTitle: {
     color: '#000000',
-  }
+  },
+  navbarIcons: {
+    tintColor: '#000000',
+  },
 });
 
 export default Styles;
