@@ -2,22 +2,18 @@ import { Dimensions } from 'react-native'
 
 const EmSimulator = (value) => {
 
-  const width = () => {
-    return Dimensions.get('window').width;
+  const screenSize = () => {
+    return Dimensions.get('window').width + Dimensions.get('window').height;
   }
 
   const ratioWidth = () => {
-    const screenDifference = (width() - 360) / 100;
-
-    return 1 + screenDifference;
+    return screenSize() / 1000;
   }
 
-  const baseUnit = () => {
-    return 10;
-  }
+  let baseUnit = 10;
 
   const unit = () => {
-    return baseUnit() * ratioWidth();
+    return baseUnit * ratioWidth();
   }
 
   const em = (value) => {
