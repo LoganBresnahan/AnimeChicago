@@ -33,7 +33,8 @@ class SignIn extends Component {
   }
 
   handleQueryParams(event) {
-    console.log(event.url);
+    urlKeyRegex = /animechicago:\/\/com\.animechicago#access_token=([0-9a-zA-Z]+)&token_type=bearer&expires_in=(\d+)/;
+    const matchGroups = urlKeyRegex.exec(event.url);
   }
 
   render() {

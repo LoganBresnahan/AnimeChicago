@@ -10,7 +10,7 @@ const Style = StyleSheet.create({
   image: {
     height: em(7.5),
     width: em(7.5),
-    margin: em(2),
+    margin: em(2.5),
   },
   text: {
     color: '#FF2A67',

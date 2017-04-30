@@ -11,7 +11,8 @@ class App extends Component {
       <Router
         navigationBarStyle={Styles.navBar}
         titleStyle={Styles.navBarTitle}
-        barButtonIconStyle={Styles.navbarIcons} >
+        barButtonIconStyle={Styles.navbarIcons}
+        duration={200} >
 
         <Scene key='root'>
           <Scene key='SignIn' component={SignIn} title="Sign In" initial={true} />
