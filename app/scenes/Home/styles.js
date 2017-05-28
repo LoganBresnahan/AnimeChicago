@@ -4,21 +4,13 @@ import { StyleSheet } from 'react-native';
 import em from '../../lib/EmSimulator'
 
 const Styles = StyleSheet.create({
-  welcome: {
+  title: {
     textAlign: 'center',
-    fontSize: em(4.5),
-    fontWeight: 'bold',
+    fontSize: em(2.5),
     color: '#46ECFF',
-    marginBottom: em(2.85),
+    marginTop: em(1.85),
+    marginBottom: em(0.75)
   },
-  crest: {
-    height: em(22.01),
-    width: em(22.01),
-    marginBottom: em(3.75),
-  },
-  buttons: {
-    flexDirection: 'row',
-  }
 })
 
 export default Styles;

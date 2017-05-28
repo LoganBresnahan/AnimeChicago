@@ -1,0 +1,12 @@
+* This directory holds the
+  SmallHorizontalScrollEnclosure Component
+
+- It is meant to render unknown child components.
+
+Sample Directory Tree:
+
+|-- SmallHorizontalScrollEnclosure
+    |-- index.js
+    |-- SmallHorizontalScrollEnclosure.js
+    |-- SmallHorizontalScrollEnclosureContainer.js
+    |-- styles.js
