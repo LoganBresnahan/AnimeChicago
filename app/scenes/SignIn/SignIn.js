@@ -4,6 +4,7 @@ import {
   View,
   Image,
   Linking,
+  AsyncStorage,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -14,13 +15,15 @@ class SignIn extends Component {
     this.handleSignIn = this.handleSignIn.bind(this)
     this.handleSkipSignIn = this.handleSkipSignIn.bind(this)
     this.handleQueryParams = this.handleQueryParams.bind(this)
+    this.setTempKey = this.setTempKey.bind(this)
   }
 
   handleSignIn() {
-    Linking.openURL(`https://secure.meetup.com/oauth2/authorize?client_id=${this.props.meetup.key}&response_type=token&redirect_uri=${this.props.meetup.uri}&set_mobile=${this.props.meetup.mobile}`)
+    Linking.openURL(`https://secure.meetup.com/oauth2/authorize?client_id=${this.props.meetup.key}&response_type=token&redirect_uri=${this.props.meetup.uri}&set_mobile=${this.props.meetup.mobile}`);
   }
 
   handleSkipSignIn() {
+    AsyncStorage.removeItem('ClientKey');
     Actions.Home()
   }
 
@@ -35,6 +38,16 @@ class SignIn extends Component {
   handleQueryParams(event) {
     urlKeyRegex = /animechicago:\/\/com\.animechicago#access_token=([0-9a-zA-Z]+)&token_type=bearer&expires_in=(\d+)/;
     const matchGroups = urlKeyRegex.exec(event.url);
+
+    this.setTempKey(matchGroups[1])
+  }
+
+  async setTempKey(key) {
+    try {
+      await AsyncStorage.setItem('ClientKey', `${key}`);
+    } catch (error) {
+      console.log(`Error: Key did not save. ${error}`);
+    }
   }
 
   render() {
