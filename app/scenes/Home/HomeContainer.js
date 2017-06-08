@@ -11,7 +11,7 @@ const HomeContainer = () => {
     <Home
       localStyles={LocalStyles}
       smallCard={SmallCard}
-      smallHSE={SmallHorizontalScrollEnclosure}
+      smallHorizontalScrollEnclosure={SmallHorizontalScrollEnclosure}
       wrapper={Wrapper} />
   );
 }

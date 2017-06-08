@@ -4,11 +4,13 @@ import SmallCardContainer from './SmallCardContainer';
 
 const SmallCardIndex = (props) => {
   return(
-    <SmallCardContainer />
+    <SmallCardContainer
+      displayData={props.displayData} />
   )
 }
 
 SmallCardIndex.propTypes = {
+  displayData: React.PropTypes.object,
 }
 
 export default SmallCardIndex;

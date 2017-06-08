@@ -5,6 +5,7 @@ import LocalStyles from './styles';
 import ImageButton from '../../components/ImageButton/index';
 import Constants from '../../config/constants';
 import Wrapper from '../../layouts/Wrapper/index';
+import KeychainHandler from '../../lib/KeychainHandler';
 
 const SignInContainer = () => {
   const constants = new Constants();
@@ -19,7 +20,8 @@ const SignInContainer = () => {
       wrapper={Wrapper}
       localStyles={LocalStyles}
       imageButton={ImageButton}
-      meetup={meetup} />
+      meetup={meetup}
+      KeychainHandler={KeychainHandler} />
   );
 }
 
