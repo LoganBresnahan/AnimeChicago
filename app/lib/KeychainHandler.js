@@ -3,16 +3,24 @@
 // import * as Keychain from 'react-native-keychain';
 //
 // class KeychainHandler extends Component {
-//   constructor() {
-//     super()
 //
-//     this.setClientKey = this.setClientKey.bind(this);
-//     this.getClientKey = this.getClientKey.bind(this);
+//   static setClientKey(apiKey) {
+//     debugger
+//     Keychain.setGenericPassword('ClientKey', apiKey)
+//       .then(() => {
+//         console.log('Credentials saved successfully!');
+//       });
 //   }
 //
-//   setClientKey () {
-//
+//   static getClientKey() {
+//     Keychain.getGenericPassword()
+//       .then((credentials) => {
+//         console.log('Credentials successfully loaded for user ' + credentials.username);
+//       }).catch((error) => {
+//         console.log(error);
+//       });
 //   }
+//
 // }
 //
 // export default KeychainHandler;
