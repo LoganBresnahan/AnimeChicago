@@ -31,7 +31,6 @@ class Home extends Component {
         this.setState({
           clientKey: key,
         })
-
         this.yourUpcomingMeetups();
         this.allUpcomingMeetups();
       }
@@ -43,7 +42,7 @@ class Home extends Component {
 
   yourUpcomingMeetups() {
     if (this.state.clientKey) {
-      fetch(`https://api.meetup.com/self/events?&status=upcoming&access_token=${this.state.clientKey}`, {
+      fetch(`https://api.meetup.com/self/events?&access_token=${this.state.clientKey}&status=upcoming`, {
         method: 'GET',
       }).then((response) => {
         response.json().then((data) => {
