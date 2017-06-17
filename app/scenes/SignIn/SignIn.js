@@ -91,7 +91,6 @@ SignIn.propTypes = {
   localStyles: React.PropTypes.object,
   imageButton: React.PropTypes.func,
   meetup: React.PropTypes.object,
-  KeychainHandler: React.PropTypes.func,
 }
 
 export default SignIn;

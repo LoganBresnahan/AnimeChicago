@@ -7,22 +7,27 @@ import {
 
 const Wrapper = (props) => {
   const GlobalStyles = props.globalStyles;
+  const TabBar = props.tabBar;
 
   return (
-    <ScrollView>
-
+    <View>
       <StatusBar translucent={true} backgroundColor={'transparent'} />
 
-      <View style={GlobalStyles.container}>
-        {props.children}
-      </View>
+      <ScrollView>
+        <View style={GlobalStyles.container}>
+          {props.children}
+        </View>
+      </ScrollView>
 
-    </ScrollView>
+      <TabBar />
+
+    </View>
   );
 }
 
-export default Wrapper;
-
 Wrapper.propTypes = {
   globalStyles: React.PropTypes.object,
+  tabBar: React.PropTypes.func,
 }
+
+export default Wrapper;
