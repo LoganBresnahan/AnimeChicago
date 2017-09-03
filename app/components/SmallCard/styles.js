@@ -7,7 +7,7 @@ const Style = StyleSheet.create({
   body: {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
     width: em(25),
-    height: em(20),
+    height: em(17),
     margin: em(0.5),
   },
   text: {

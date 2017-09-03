@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ButtonContainer from './ButtonContainer';
 
@@ -11,8 +12,8 @@ const ButtonIndex = (props) => {
 }
 
 ButtonIndex.propTypes = {
-  title: React.PropTypes.string,
-  onPress: React.PropTypes.func,
+  title: PropTypes.string,
+  onPress: PropTypes.func,
 }
 
 export default ButtonIndex;

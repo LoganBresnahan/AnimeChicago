@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ImageButtonContainer from './ImageButtonContainer';
 
@@ -12,9 +13,9 @@ const ImageButtonIndex = (props) => {
 }
 
 ImageButtonIndex.propTypes = {
-  title: React.PropTypes.string,
-  image: React.PropTypes.number,
-  onPress: React.PropTypes.func,
+  title: PropTypes.string,
+  image: PropTypes.number,
+  onPress: PropTypes.func,
 }
 
 export default ImageButtonIndex;

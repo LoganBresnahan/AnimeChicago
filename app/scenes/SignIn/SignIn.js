@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   View,
@@ -42,7 +43,6 @@ class SignIn extends Component {
   }
 
   async setTempKey(key) {
-    // this.props.KeychainHandler.setClientKey(key)
     try {
       await AsyncStorage.setItem('ClientKey', `${key}`);
     } catch (error) {
@@ -87,10 +87,10 @@ class SignIn extends Component {
 }
 
 SignIn.propTypes = {
-  wrapper: React.PropTypes.func,
-  localStyles: React.PropTypes.object,
-  imageButton: React.PropTypes.func,
-  meetup: React.PropTypes.object,
+  wrapper: PropTypes.func,
+  localStyles: PropTypes.object,
+  imageButton: PropTypes.func,
+  meetup: PropTypes.object,
 }
 
 export default SignIn;

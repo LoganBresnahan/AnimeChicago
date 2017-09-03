@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   Modal,
   Text,
@@ -38,8 +39,8 @@ const SmallCard = (props) => {
 }
 
 SmallCard.propTypes = {
-  localStyles: React.PropTypes.object,
-  displayData: React.PropTypes.object,
+  localStyles: PropTypes.object,
+  displayData: PropTypes.object,
 }
 
 export default SmallCard;

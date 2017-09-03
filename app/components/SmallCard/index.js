@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SmallCardContainer from './SmallCardContainer';
 
@@ -10,7 +11,7 @@ const SmallCardIndex = (props) => {
 }
 
 SmallCardIndex.propTypes = {
-  displayData: React.PropTypes.object,
+  displayData: PropTypes.object,
 }
 
 export default SmallCardIndex;

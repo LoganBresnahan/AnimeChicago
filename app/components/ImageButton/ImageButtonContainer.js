@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ImageButton from './ImageButton';
 import Styles from './styles';
@@ -14,9 +15,9 @@ const ImageButtonContainer = (props) => {
 }
 
 ImageButtonContainer.propTypes = {
-  title: React.PropTypes.string,
-  image: React.PropTypes.number,
-  onPress: React.PropTypes.func,
+  title: PropTypes.string,
+  image: PropTypes.number,
+  onPress: PropTypes.func,
 }
 
 export default ImageButtonContainer;

@@ -15,8 +15,8 @@ class App extends Component {
         duration={200} >
 
         <Scene key='root'>
-          <Scene key='SignIn' component={SignIn} title="Sign In" initial={true} />
-          <Scene key='Home' component={Home} title="Home" />
+          <Scene key='SignIn' component={SignIn} title="Anime Chicago" initial={true} />
+          <Scene key='Home' component={Home} title="Anime Chicago" />
         </Scene>
 
       </Router>
