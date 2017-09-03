@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   View,
   Text,
@@ -9,13 +10,17 @@ const TabBar = (props) => {
 
   return(
     <View style={LocalStyles.bar}>
-      <Text>hey</Text>
+
+      <View style={LocalStyles.buttons}>
+        {props.children}
+      </View>
+
     </View>
   );
 }
 
 TabBar.propTypes = {
-  localStyles: React.PropTypes.object,
+  localStyles: PropTypes.object,
 }
 
 export default TabBar;

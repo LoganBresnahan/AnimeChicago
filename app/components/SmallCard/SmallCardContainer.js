@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SmallCard from './SmallCard';
 import Styles from './styles';
@@ -12,7 +13,7 @@ const SmallCardContainer = (props) => {
 }
 
 SmallCardContainer.propTypes = {
-  displayData: React.PropTypes.object,
+  displayData: PropTypes.object,
 }
 
 export default SmallCardContainer;

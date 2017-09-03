@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Text,
   AsyncStorage,
@@ -84,6 +85,7 @@ class Home extends Component {
       //handle errors?
       return(
         <Text>
+          // render anime chicago logo
           Loading...
         </Text>
       )
@@ -120,13 +122,13 @@ class Home extends Component {
       <Wrapper>
 
         <Text style={LocalStyles.title}>
-          Your Upcoming Meetups
+          Your Upcoming Events
         </Text>
 
         {this.chooseYourEventsView(SmallHorizontalScrollEnclosure, SmallCard)}
 
         <Text style={LocalStyles.title}>
-          All Upcoming Meetups
+          All Upcoming Events
         </Text>
 
         {this.chooseAllEventsView(SmallHorizontalScrollEnclosure, SmallCard)}
@@ -137,10 +139,10 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  localStyles: React.PropTypes.object,
-  smallCard: React.PropTypes.func,
-  smallHorizontalScrollEnclosure: React.PropTypes.func,
-  wrapper: React.PropTypes.func,
+  localStyles: PropTypes.object,
+  smallCard: PropTypes.func,
+  smallHorizontalScrollEnclosure: PropTypes.func,
+  wrapper: PropTypes.func,
 }
 
 export default Home;

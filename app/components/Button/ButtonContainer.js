@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Button from './Button';
 import Styles from './styles';
@@ -13,8 +14,8 @@ const ButtonContainer = (props) => {
 }
 
 ButtonContainer.propTypes = {
-  title: React.PropTypes.string,
-  onPress: React.PropTypes.func,
+  title: PropTypes.string,
+  onPress: PropTypes.func,
 }
 
 export default ButtonContainer;

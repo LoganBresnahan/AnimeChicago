@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   ScrollView,
 } from 'react-native';
@@ -14,7 +15,7 @@ const SmallHorizontalScrollEnclosure = (props) => {
 }
 
 SmallHorizontalScrollEnclosure.propTypes = {
-  localStyles: React.PropTypes.object,
+  localStyles: PropTypes.object,
 }
 
 export default SmallHorizontalScrollEnclosure;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
   Text,
@@ -20,9 +21,9 @@ const Button = (props) => {
 }
 
 Button.propTypes = {
-  localStyles: React.PropTypes.object,
-  title: React.PropTypes.string,
-  onPress: React.PropTypes.func,
+  localStyles: PropTypes.object,
+  title: PropTypes.string,
+  onPress: PropTypes.func,
 }
 
 export default Button;

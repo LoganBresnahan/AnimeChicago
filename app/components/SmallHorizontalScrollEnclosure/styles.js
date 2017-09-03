@@ -5,7 +5,7 @@ import em from '../../lib/EmSimulator';
 
 const Style = StyleSheet.create({
   body: {
-    height: em(4),
+    height: em(0),
   }
 })
 

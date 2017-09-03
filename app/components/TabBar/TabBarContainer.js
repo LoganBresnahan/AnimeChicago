@@ -6,7 +6,11 @@ import LocalStyles from './styles';
 const TabBarContainer = (props) => {
   return(
     <TabBar
-      localStyles={LocalStyles} />
+      localStyles={LocalStyles} >
+
+      {props.children}
+
+    </TabBar>
   );
 }
 

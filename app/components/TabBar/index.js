@@ -4,7 +4,9 @@ import TabBarContainer from './TabBarContainer';
 
 const TabBarIndex = (props) => {
   return(
-    <TabBarContainer />
+    <TabBarContainer>
+      {props.children}
+    </TabBarContainer>
   );
 }
 
