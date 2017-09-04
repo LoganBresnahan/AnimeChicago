@@ -21,7 +21,7 @@ const Wrapper = (props) => {
   }
 
   const actionOther = () => {
-
+    Actions.Sponsors()
   }
 
   return (
@@ -41,7 +41,7 @@ const Wrapper = (props) => {
           onPress={actionHome} />
 
         <TabBarButton
-          wording={"Today's Meetups"}
+          wording={"Sponsors"}
           icon={'icon'}
           onPress={actionOther} />
 

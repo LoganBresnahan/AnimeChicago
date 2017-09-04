@@ -19,6 +19,7 @@ const Styles = StyleSheet.create({
     backgroundColor: '#3B4052',
     height: screenHeight,
     paddingTop: paddingContainerTopForOS,
+    paddingBottom: em(4),
   },
   navBar: {
     backgroundColor: '#486ACC',
