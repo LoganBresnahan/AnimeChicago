@@ -12,6 +12,19 @@ class Constants {
     return 'on';
   }
 
+  admins() {
+    return {
+      'Gabe': '82892192',
+      'Jamie': '8113869',
+      'Jeremy': '48044822',
+      'J-Pod': '148352752',
+      'Grace': '48244432',
+      'J-San': '182960374',
+      'Nik': '10222051',
+      'Boss Status': '159870932',
+    }
+  }
+
 }
 
 export default Constants;

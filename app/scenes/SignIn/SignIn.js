@@ -58,29 +58,27 @@ class SignIn extends Component {
 
     return (
       <Wrapper>
+        <Text style={LocalStyles.welcome}>
+          AnimeChicago
+        </Text>
 
-          <Text style={LocalStyles.welcome}>
-            AnimeChicago
-          </Text>
+        <Image
+          style={LocalStyles.crest}
+          source={require('../../images/crest.png')} />
 
-          <Image
-            style={LocalStyles.crest}
-            source={require('../../images/crest.png')} />
+        <View style={LocalStyles.buttons}>
 
-          <View style={LocalStyles.buttons}>
+          <ImageButton
+            title={"Sign In"}
+            image={require('../../images/meetup-media.png')}
+            onPress={this.handleSignIn} />
 
-            <ImageButton
-              title={"Sign In"}
-              image={require('../../images/meetup-media.png')}
-              onPress={this.handleSignIn} />
+          <ImageButton
+            title={"Explore"}
+            image={require('../../images/arrow-right.png')}
+            onPress={this.handleSkipSignIn} />
 
-            <ImageButton
-              title={"Explore"}
-              image={require('../../images/arrow-right.png')}
-              onPress={this.handleSkipSignIn} />
-
-          </View>
-
+        </View>
       </Wrapper>
     );
   }
