@@ -4,17 +4,17 @@ import { StyleSheet } from 'react-native';
 import em from '../../lib/EmSimulator';
 
 const Style = StyleSheet.create({
-  body: {
-    backgroundColor: 'rgba(0, 0, 0, 0.25)',
-    width: em(25),
-    height: em(17),
-    margin: em(0.5),
-  },
-  text: {
-    color: '#FF2A67',
-    textAlign: 'center',
+  address: {
     fontSize: em(2),
-    padding: em(0.40),
+    textAlign: 'center',
+    color: '#FF2A67',
+    padding: em(0.5),
+    marginBottom: em(0.5),
+  },
+  name: {
+    fontSize: em(2.5),
+    color: '#242E75',
+    textAlign: 'center',
   },
 })
 
