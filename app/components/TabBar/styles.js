@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import {
+  StyleSheet,
+  // Dimensions,
+} from 'react-native';
 
 import em from '../../lib/EmSimulator';
 
-let width = null;
-Dimensions.addEventListener('change', (dimensions) => {
-  width = dimensions.window.width;
-})
+// let width = null;
+// Dimensions.addEventListener('change', (dimensions) => {
+//   dimensions.window.width;
+// })
 
 const Style = StyleSheet.create({
   bar: {
     backgroundColor: '#486ACC',
     height: em(4),
-    width: width,
+    // width: width,
     position: 'absolute',
     justifyContent: 'flex-end',
     bottom: 0,

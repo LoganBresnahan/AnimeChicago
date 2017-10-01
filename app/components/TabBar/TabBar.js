@@ -1,23 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   View,
   Text,
+  Keyboard,
 } from 'react-native';
 
-const TabBar = (props) => {
-  const LocalStyles = props.localStyles;
+class TabBar extends Component {
+  constructor(props) {
+    super(props)
 
-  return(
-    <View style={LocalStyles.bar}>
+    this.handleKeyboard = this.handleKeyboard.bind(this);
 
-      <View style={LocalStyles.buttons}>
-        {props.children}
-      </View>
+    this.state = {
+      noKeyboard: true,
+    }
+  }
 
-    </View>
-  );
+  componentWillMount() {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', ()=>{this.handleKeyboard(false)});
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', ()=>{this.handleKeyboard(true)});
+  }
+
+  componentWillUnmount() {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  handleKeyboard(boolean) {
+    this.setState({
+      noKeyboard: boolean,
+    })
+  }
+
+  render() {
+    const LocalStyles = this.props.localStyles;
+
+    return(
+      this.state.noKeyboard &&
+        <View style={LocalStyles.bar}>
+
+          <View style={LocalStyles.buttons}>
+            {this.props.children}
+          </View>
+
+        </View>
+    );
+  }
 }
+
 
 TabBar.propTypes = {
   localStyles: PropTypes.object,

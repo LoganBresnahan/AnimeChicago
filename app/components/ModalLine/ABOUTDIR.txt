@@ -6,7 +6,7 @@
 
 Sample Directory Tree:
 
-|-- SmallCard
+|-- ModalLine
     |-- index.js
     |-- ModalLine.js
     |-- ModalLineContainer.js

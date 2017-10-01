@@ -51,7 +51,6 @@ class SignIn extends Component {
   }
 
   render() {
-    const GlobalStyles = this.props.globalStyles;
     const LocalStyles = this.props.localStyles;
     const ImageButton = this.props.imageButton;
     const Wrapper = this.props.wrapper;

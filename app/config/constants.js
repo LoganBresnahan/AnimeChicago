@@ -25,6 +25,10 @@ class Constants {
     }
   }
 
+  animeChicagoGroupID() {
+    return '12220382';
+  }
+
 }
 
 export default Constants;
