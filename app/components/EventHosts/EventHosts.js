@@ -19,7 +19,7 @@ const EventHosts = (props) => {
         <View key={index} style={LocalStyles.imageRow}>
           <Image
             style={LocalStyles.image}
-            source={{uri: data.photo.thumb_link}} />
+            source={{uri: data.photo.photo_link}} />
 
           <Text style={LocalStyles.name}>
             {data.name}

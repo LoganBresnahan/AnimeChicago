@@ -10,6 +10,7 @@ import {
   AsyncStorage,
   TouchableOpacity,
 } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class Home extends Component {
   constructor(props){
@@ -255,7 +256,7 @@ class Home extends Component {
       if (this.state.allEvents && this.state.pastEvents) {
         const todayEvents = this.parseEventsForToday()
 
-        if(todayEvents.length > 0) {
+        if(true) {
           return (
             <View>
               <Text style={LocalStyles.title}>
@@ -263,10 +264,11 @@ class Home extends Component {
               </Text>
 
               <ScrollView horizontal={true}>
-                {todayEvents.map((meetupEvent, index) =>
+                {this.state.pastEvents.map((meetupEvent, index) =>
                   <View key={index}>
                     <SmallCard
-                      displayData={meetupEvent} />
+                      displayData={meetupEvent}
+                      handleModalPress={()=>{Actions.AdminEvent({eventID: meetupEvent.id})}} />
                   </View>
                 )}
               </ScrollView>
