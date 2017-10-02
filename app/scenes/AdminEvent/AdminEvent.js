@@ -6,6 +6,7 @@ import {
   Image,
   ScrollView,
   AsyncStorage,
+  TextInput,
 } from 'react-native';
 
 class AdminEvent extends Component {
@@ -15,6 +16,7 @@ class AdminEvent extends Component {
     this.getTempKey = this.getTempKey.bind(this);
     this.getEventRsvps = this.getEventRsvps.bind(this);
     this.attendanceListView = this.attendanceListView.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
 
     this.state = {
       clientKey: null,
@@ -66,6 +68,7 @@ class AdminEvent extends Component {
         method: 'GET',
       }).then((response) => {
         response.json().then((data) => {
+          this.rsvpConstantList = data;
           this.setState({
             rsvps: data,
           })
@@ -98,6 +101,16 @@ class AdminEvent extends Component {
     }
   }
 
+  handleSearch(text) {
+    console.log(text)
+    const filtered = this.rsvpConstantList.filter((person) => {
+      return person.member.name.toLowerCase().indexOf(text.toLowerCase()) > -1;
+    })
+    this.setState({
+      rsvps: filtered,
+    })
+  }
+
   render() {
     const LocalStyles = this.props.localStyles;
     const Wrapper = this.props.wrapper;
@@ -105,6 +118,12 @@ class AdminEvent extends Component {
 
     return (
       <Wrapper>
+        <TextInput
+          style={LocalStyles.searchBar}
+          placeholder={'search'}
+          placeholderTextColor={'#FF2A67'}
+          onChangeText={(text) => {this.handleSearch(text)}} />
+
         {this.attendanceListView(LocalStyles, MemberCard)}
       </Wrapper>
     );

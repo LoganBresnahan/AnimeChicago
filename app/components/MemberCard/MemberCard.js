@@ -28,6 +28,15 @@ class MemberCard extends Component {
     // this.getMemberDuesInfo();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      attended: nextProps.displayData.attendance_status === 'attended',
+      absent: nextProps.displayData.attendance_status === 'absent',
+      noshow: nextProps.displayData.attendance_status === 'noshow',
+      guests: nextProps.displayData.guests,
+    })
+  }
+
   // getMemberDuesInfo() {
   //   const groupID = this.props.groupID;
   //   const memberID = this.props.displayData.id;

@@ -9,7 +9,7 @@ import em from '../lib/EmSimulator';
 
 const screenHeight = Dimensions.get('window').height;
 const paddingNavBarTopForOS = Platform.OS === 'android' ? em(0.5) : 0;
-const paddingContainerTopForOS = Platform.OS === 'ios' ? em(2) : em(5);
+const paddingContainerTopForOS = Platform.OS === 'ios' ? em(7) : em(5);
 
 const Styles = StyleSheet.create({
   container: {

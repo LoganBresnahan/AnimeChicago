@@ -7,7 +7,7 @@ const Style = StyleSheet.create({
   body: {
     backgroundColor: 'rgba(0, 0, 0, 0.25)',
     width: em(35),
-    height: em(13),
+    height: em(15),
     margin: em(0.5),
     flexDirection: 'row',
   },
@@ -34,7 +34,7 @@ const Style = StyleSheet.create({
   switchText: {
     color: '#FF2A67',
     marginRight: em(1),
-    marginBottom: em(1),
+    marginBottom: em(2),
   },
   statusRow: {
     flexDirection: 'row',
