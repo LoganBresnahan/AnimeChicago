@@ -21,15 +21,15 @@ const SmallCard = (props) => {
     <TouchableOpacity onPress={props.handleModalPress}>
       <View style={Styles.body}>
         <Text style={Styles.text}>
+          {Data.name}
+        </Text>
+
+        <Text style={Styles.text}>
           {displayTime(Data)}
         </Text>
 
         <Text style={Styles.text}>
           {StandardTime(Data.time, Data.duration)}
-        </Text>
-
-        <Text style={Styles.text}>
-          {Data.name}
         </Text>
       </View>
     </TouchableOpacity>
